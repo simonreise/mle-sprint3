@@ -1,0 +1,12 @@
+services:
+  churn-app:
+    env_file:
+      - ./.env
+    build:
+      dockerfile: Dockerfile
+    ports:
+      - "${APP_PORT_VM}:${APP_PORT}"
+    volumes:
+      - type: bind
+        source: ./models
+        target: /churn_app/models
